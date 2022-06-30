@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/diary_nav"
+    app:startDestination="@id/displayFragment">
+
+    <fragment
+        android:id="@+id/displayFragment"
+        android:name="uk.ac.stir.cs.diaryproject.fragments.display.DisplayFragment"
+        android:label="Display"
+        tools:layout="@layout/fragment_display" >
+        <action
+            android:id="@+id/action_displayFragment_to_dateFragment"
+            app:destination="@id/dateFragment" />
+        <action
+            android:id="@+id/action_displayFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="uk.ac.stir.cs.diaryproject.fragments.add.AddFragment"
+        android:label="Add"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_addFragment_to_displayFragment"
+            app:destination="@id/displayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dateFragment"
+        android:name="uk.ac.stir.cs.diaryproject.fragments.date.DateFragment"
+        android:label="Date"
+        tools:layout="@layout/fragment_date" >
+        <action
+            android:id="@+id/action_dateFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_dateFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="uk.ac.stir.cs.diaryproject.fragments.update.UpdateFragment"
+        android:label="Update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_displayFragment"
+            app:destination="@id/displayFragment" />
+        <argument
+            android:name="currentEntry"
+            app:argType="uk.ac.stir.cs.diaryproject.model.Entries" />
+    </fragment>
+</navigation>
